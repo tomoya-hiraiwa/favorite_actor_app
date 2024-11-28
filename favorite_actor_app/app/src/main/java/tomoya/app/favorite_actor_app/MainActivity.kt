@@ -34,6 +34,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import tomoya.app.favorite_actor_app.ui.theme.Favorite_actor_appTheme
+import tomoya.app.favorite_actor_app.views.HomePage
 
 class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +42,7 @@ class MainActivity : FragmentActivity() {
         enableEdgeToEdge()
         setContent {
             Favorite_actor_appTheme {
-                MyApp()
+                HomePage()
             }
         }
     }
@@ -54,6 +55,7 @@ fun MyApp() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "Top") {
         composable("Top") { TopPage(navController = navController) }
+        composable("Home") { HomePage() }
     }
 }
 
